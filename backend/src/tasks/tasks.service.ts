@@ -11,7 +11,7 @@ export class TasksService {
   }
 
   findAll() {
-    return `This action returns all tasks`;
+    return this.prisma.task.findMany();
   }
 
   findOne(id: number) {
