@@ -11,7 +11,7 @@ export class TasksService {
   }
 
   findAll() {
-    return `This action returns all tasks`;
+    return this.prisma.task.findMany();
   }
 
   findOne(id: number) {
@@ -19,7 +19,10 @@ export class TasksService {
   }
 
   update(id: number, updateTaskDto: UpdateTaskDto) {
-    return `This action updates a #${id} task`;
+    return this.prisma.task.update({
+      where: { id },
+      data: updateTaskDto,
+    });
   }
 
   remove(id: number) {
